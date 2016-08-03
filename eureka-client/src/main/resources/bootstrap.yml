@@ -1,0 +1,73 @@
+---
+spring:
+  profiles: subject
+  application:
+    name: subject
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8010/eureka/
+
+words: 你,我,他
+
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+  
+---
+spring:
+  profiles: verb
+  application:
+    name: verb
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8010/eureka/
+
+words: 看,跑,跳,走,菲
+
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+---
+spring:
+  profiles: article
+  application:
+    name: article
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8010/eureka/
+
+words: 一个,两个,三个,四个
+
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+---
+spring:
+  profiles: adjective
+  application:
+    name: adjective
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8010/eureka/
+
+words: 白的,黄的,红的,绿的
+
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+---
+spring:
+  profiles: noun
+  application:
+    name: noun
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8010/eureka/
+  instance:
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+words: 书,画,电影
+
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+
